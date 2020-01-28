@@ -1,0 +1,95 @@
+<div class="saving-details">
+  <div class="header">
+    <h2>אישור וסיום</h2>
+  </div>
+
+  <div class="applicant-details">
+    <form>
+      <h4 class="subtitle">פרטי המבקש</h4>
+      <div class="details fixhr">
+        <div class="item-details">שם הספק:
+          <span class="item">{{ dataService.data.applicant.supplierName }}</span>
+        </div>
+        <div class="item-details">מספר הח"פ:
+          <span class="item">{{ dataService.data.applicant.companyNumber }}</span>
+        </div>
+        <div class="item-details">מקור הטובין:
+          <span class="item">{{ dataService.data.applicant.sourceObjects.title }}</span>
+        </div>
+      </div>
+      <div class="details">
+        <div class="item-details">שם איש קשר:
+          <span class="item">{{ dataService.data.applicant.fullName }}</span>
+        </div>
+        <div class="item-details">מספר ת"ז:
+          <span class="item">{{ dataService.data.applicant.identityCard }}</span>
+        </div>
+        <div class="item-details">כתובת דוא"ל:
+          <span class="item">{{ dataService.data.applicant.email }}</span>
+        </div>
+        <div class="item-details">מספר טלפון נייד:
+          <span class="item">{{ dataService.data.applicant.phone }}</span>
+        </div>
+        <div class="item-details">מספר פקס נוסף אופיונלי:
+          <span class="item">{{ dataService.data.applicant.faxNumber }}</span>
+        </div>
+      </div>
+      <div class="edit-details">
+        <div class="btn-edit" (click)="btnEdit(2)">עריכה</div>
+      </div>
+    </form>
+  </div>
+
+  <div class="commodity-details">
+    <form>
+      <h4 class="subtitle">פרטי החומרים:</h4>
+      <div class="details">
+        <div class="item-details">פריט:
+          <span class="item">{{ dataService.data.commodity.itemName }}</span>
+        </div>
+        <div class="item-details">קטגוריה:
+          <span class="item">{{ dataService.data.commodity.categorie.title }}</span>
+        </div>
+        <div class="item-details">יעוד הפריט:
+          <span class="item">{{ dataService.data.commodity.designateItem }}</span>
+        </div>
+        <div class="item-details">כמות מבוקשת:
+          <span class="item">{{ dataService.data.commodity.quantityRequested }}</span>
+          <span class="item">{{ dataService.data.commodity.unitMeasure.title }}</span>
+        </div>
+        <div class="table-item-details">
+          <div style="overflow: auto;">
+            <table style="width: 100%;">
+              <tr class="columnheader">
+                <th>שם רכיב</th>
+                <th>פורמולה</th>
+                <th>מספר CAS</th>
+                <th>%מכלול התערובת</th>
+              </tr>
+              <tr class="optionsTable" *ngFor="let ingredient of dataService.data.commodity.ingredients; let i = index">
+                <td>{{ingredient.inventoryName}}</td>
+                <td>{{ingredient.molecularFormula}}</td>
+                <td>{{ingredient.casNumber}}</td>
+                <td>{{ingredient.inventoryNumber}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="edit-details">
+        <div class="btn-edit" (click)="btnEdit(1)">עריכה</div>
+      </div>
+    </form>
+  </div>
+
+  <div class="confirm-details">
+    <h4 class="subtitle">אנא אשר/י את הפרטים הבאים</h4>
+    <mat-checkbox>
+      <div>
+        אני,{{ dataService.data.applicant.supplierName }} ,מספר ת"ז {{ dataService.data.applicant.identityCard }} ,אבקש
+        לאשר הבאה חד פעמית של המשלוח שפרטיו רשומים לעיל.אני מאשר/ת שכל הפרטים בטופס
+        זה מלאים נכונים ומדוייקים.
+      </div>
+    </mat-checkbox>
+  </div>
+</div>

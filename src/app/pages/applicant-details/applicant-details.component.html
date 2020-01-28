@@ -1,0 +1,106 @@
+<div class="applicant-details">
+  <div class="header">
+    <h2>פרטי המבקש</h2>
+  </div>
+  <div class="supplier-details">
+    <form [formGroup]="form">
+      <h4 class="subtitle">פרטי הספק</h4>
+      <div>
+        <div class="col-6">
+          <mat-label>שם הספק</mat-label>
+          <input type="text" class="matInput" [(ngModel)]="dataService.data.applicant.supplierName" matInput
+            name="supplierName" formControlName="supplierName">
+          <mat-error *ngIf="supplierName.invalid && supplierName.touched">
+            יש למלא שם ספק
+          </mat-error>
+        </div>
+        <div class="col-6">
+          <mat-label>מקור הטובין</mat-label>
+          <input type="text" class="matInput" matInput placeholder="בחר/מקור"
+            [(ngModel)]="dataService.data.applicant.sourceObjects.title" [ngModelOptions]="{standalone: true}"
+            [matAutocomplete]="autoSourceObjects" name="sourceObjects">
+          <mat-autocomplete #autoSourceObjects="matAutocomplete" (optionSelected)="optionSelected($event)">
+            <mat-option *ngFor="let origin of origins" [value]="origin">
+              {{origin.title}}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+        <div class="col-6">
+          <mat-label>מספר ח"פ</mat-label>
+          <input type="number" class="matInput" [(ngModel)]="dataService.data.applicant.companyNumber"
+            formControlName="companyNumber" name="companyNumber" matInput>
+          <mat-error *ngIf="companyNumber.invalid && companyNumber.touched">
+            יש למלא מספר ח"פ
+          </mat-error>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="company-contact-information">
+    <form [formGroup]="form">
+      <h4 class="subtitle">פרטי איש קשר בחברה</h4>
+      <div>
+        <div class="col-6">
+          <mat-label>שם מלא</mat-label>
+          <input type="text" class="matInput" [(ngModel)]="dataService.data.applicant.fullName"
+            formControlName="fullName" name="fullName" matInput>
+          <mat-error *ngIf="fullName.invalid && fullName.touched">
+            יש למלא שם מלא
+          </mat-error>
+        </div>
+        <div class="col-6">
+          <mat-label> ת"ז</mat-label>
+          <input type="tel" class="matInput" minlength="9" maxlength="9"
+            [(ngModel)]="dataService.data.applicant.identityCard" formControlName="identityCard" name="identityCard"
+            matInput>
+          <mat-error *ngIf="identityCard.invalid && identityCard.touched">
+            יש למלא ת"ז
+          </mat-error>
+        </div>
+        <div class="col-6">
+          <div>
+            <mat-label>כתובת דוא"ל</mat-label>
+            <mat-icon class="icon-help" [mdePopoverTriggerFor]="appPopover" mdePopoverTriggerOn="click"
+              #popoverTrigger="mdePopoverTrigger">
+              help_outline
+            </mat-icon>
+          </div>
+          <mde-popover #appPopover="mdePopover" [mdePopoverOverlapTrigger]="true">
+            <mat-card style="max-width: 300px">
+              <mat-card-content>
+                A material design popover component created using Angular version 8 with the Angular CDK.
+              </mat-card-content>
+            </mat-card>
+          </mde-popover>
+          <input type="email" class="matInput" [(ngModel)]="dataService.data.applicant.email" formControlName="email"
+            name="email" matInput>
+          <mat-error *ngIf="email.invalid && email.touched">
+            יש למלא דוא"ל
+          </mat-error>
+        </div>
+        <div class="col-6">
+          <mat-label>מספר טלפון</mat-label>
+          <input type="tel" class="matInput" minlength="9" maxlength="9"
+            [(ngModel)]="dataService.data.applicant.telephone" formControlName="telephone" name="telephone" matInput>
+          <mat-error *ngIf="telephone.invalid && telephone.touched">
+            יש למלא מספר טלפון
+          </mat-error>
+        </div>
+        <div class="col-6">
+          <mat-label>מספר טלפון נייד</mat-label>
+          <input type="tel" class="matInput" minlength="10" maxlength="10"
+            [(ngModel)]="dataService.data.applicant.phone" formControlName="phone" name="phone" matInput>
+          <mat-error *ngIf="phone.invalid && phone.touched">
+            יש למלא מספר טלפון נייד
+          </mat-error>
+        </div>
+        <div class="col-6">
+          <mat-label>מספר פקס(אופציולי)</mat-label>
+          <input type="tel" class="matInput" minlength="9" maxlength="9"
+            [(ngModel)]="dataService.data.applicant.faxNumber" formControlName="faxNumber" name="faxNumber" matInput>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

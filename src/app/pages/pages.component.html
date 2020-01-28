@@ -1,0 +1,38 @@
+<div class="pages">
+  <h1 class="title">טופס איכות הסביבה</h1>
+
+  <mat-horizontal-stepper #stepper labelPosition="bottom" [@.disabled]="true" disableRipple="false" [selectedIndex]="currentPages"
+    [linear]="false">
+    <mat-step label="פרטי המבקש" state="perm_identity" [completed]="false" >
+      <app-applicant-details ></app-applicant-details>
+    </mat-step>
+
+    <mat-step label="פרטי הטובין" state="archive" [completed]="false" >
+      <app-commodity-details ></app-commodity-details>
+    </mat-step>
+
+    <mat-step label="אישור וסיום" state="send" [completed]="false" >
+      <app-saving-details (edit)="prevPage($event)"></app-saving-details>
+    </mat-step>
+
+    <!-- Icon overrides. -->
+    <ng-template matStepperIcon="perm_identity">
+      <mat-icon (click)="prevPage()">perm_identity</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="archive">
+      <mat-icon (click)="prevPage()">archive</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="send">
+      <mat-icon  (click)="stepSave(3)">send</mat-icon>
+    </ng-template>
+  </mat-horizontal-stepper>
+
+  <div class="footer">
+    <div matStepperPrevious class="btn btn-prev" (click)="prevPage(1)">
+        <span class="icon-prav">arrow_forward</span>
+        <span> חזרה</span>
+    </div>
+    <div *ngIf="showNextBtn" matStepperNext class="btn btn-next" (click)="nextPage()">המשך</div>
+    <div *ngIf="showConfirmationBtn" class="btn btn-confirmation" (click)="reset()">אישור</div>
+  </div>
+</div>

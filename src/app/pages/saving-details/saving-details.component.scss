@@ -1,0 +1,66 @@
+.saving-details {
+
+  .applicant-details,
+  .commodity-details,
+  .delivery-details,
+  .confirm-details {
+    background-color: white;
+    padding: 30px 50px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.46);
+    
+    .fixhr {
+      border-bottom: 1px solid gray;
+      padding: 2px;
+    }
+
+    .details {
+      .item-details {
+        display: inline-block;
+        width: 35%;
+        margin: 15px 0;
+        color: #4285F4;
+
+        .item {
+            color: black;
+        }
+      }
+    }
+
+    .edit-details {
+      justify-content: flex-end;
+      
+      .btn-edit {
+        cursor: pointer;
+        padding: 5px;
+        color: #4285F4;
+        border: 2px solid #4285F4;
+        width: 109px;
+        text-align: center;
+      }
+    }
+    .mat-checkbox-label {
+        color: #4285F4;
+    }
+
+    .table-item-details {
+      width: 100%;
+
+      .columnheader {
+        text-align: justify;
+        color: #4285F4;
+        font-size: 14px;
+      }
+
+      .optionsTable {
+        box-shadow: 0 0 14px 0px rgba(0, 0, 0, 0.63);
+        height: 50px;
+      }
+    }
+    ::ng-deep {
+      span.mat-checkbox-label {
+        white-space: pre-line;
+      }
+    }
+  }  
+}

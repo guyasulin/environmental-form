@@ -1,0 +1,107 @@
+<div class="commodity-details">
+  <div class="header">
+    <h2>פרטי החומרים המבוקשים</h2>
+    <div class="error-outline">error_outline
+      <span class="text-error-outline">לתושמת ליבך,החומרים המבוקשים והרכבם צריכים להיות מאושר על ידי בעל/העסק או
+        מנהל/ת</span>
+    </div>
+  </div>
+  <div class="item">
+    <form [formGroup]="form">
+      <h4 class="subtitle">פרטי 1</h4>
+      <div>
+        <div class="col-6">
+          <mat-label>שם הפריט</mat-label>
+          <mat-icon class="icon-help">help_outline</mat-icon>
+          <input type="text" class="matInput" [(ngModel)]="dataService.data.commodity.itemName" name="itemName"
+            formControlName="itemName" matInput>
+          <mat-error *ngIf="itemName.invalid && itemName.touched">
+            יש למלא שם הפריט
+          </mat-error>
+        </div>
+        <div class="col-6">
+          <mat-label>קטגוריה</mat-label>
+          <input type="text" class="matInput" [(ngModel)]="dataService.data.commodity.categorie.title"
+            [ngModelOptions]="{standalone: true}" matInput placeholder="בחר/קטגוריה" [matAutocomplete]="autoCategorie">
+          <mat-autocomplete #autoCategorie="matAutocomplete" (optionSelected)="selectCategorie($event)">
+            <mat-option *ngFor="let categorie of categories$ | async" [value]="categorie">
+              {{categorie.title}}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+        <div class="col-6">
+          <mat-label>ייעוד הפריט</mat-label>
+          <mat-icon class="icon-help">help_outline</mat-icon>
+          <input type="text" class="matInput" [(ngModel)]="dataService.data.commodity.designateItem"
+            name="designateItem" formControlName="designateItem" matInput>
+          <mat-error *ngIf="designateItem.invalid && designateItem.touched">
+            יש למלא ייעוד הפריט
+          </mat-error>
+        </div>
+
+        <div class="col-6">
+          <mat-label>כמות מבוקשת (ספרות בלבד)</mat-label>
+          <div class="col-4">
+            <input class="kl" type="number" class="matInput" [(ngModel)]="dataService.data.commodity.quantityRequested"
+              name="quantityRequested" formControlName="quantityRequested" matInput>
+          </div>
+          <div class="col-2">
+            <input type="text" placeholder="קג" class="matInput"
+              [(ngModel)]="dataService.data.commodity.unitMeasure.title" [ngModelOptions]="{standalone: true}" matInput
+              [matAutocomplete]="auto1">
+            <mat-autocomplete #auto1="matAutocomplete" (optionSelected)="selectUnitMeasure($event)">
+              <mat-option *ngFor="let unitMeasure of  unitMeasures$ | async" [value]="unitMeasure">
+                {{unitMeasure.title}}
+              </mat-option>
+            </mat-autocomplete>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="subtitle">רשימת מרכיבים</h4>
+      <div class="text-icon-help">הוספת מרכיב לפי שםתפורמולה או מספר CAS
+        <mat-icon class="icon-help">help_outline </mat-icon>
+      </div>
+      <div class="ingredientsTable" *ngIf="showTable">
+        <div style="overflow: auto;">
+          <table style="width: 100%;">
+            <tr class="columnheader">
+              <th>שם רכיב</th>
+              <th>פורמולה</th>
+              <th>מספר CAS</th>
+              <th>%מכלול התערובת</th>
+            </tr>
+            <tr class="optionsTable" *ngFor="let ingredient of dataService.data.commodity.ingredients; let i = index">
+              <td>
+                <mat-icon class="clear" (click)="remove(i)" class="clear">clear</mat-icon>
+                {{ingredient.inventoryName}}
+              </td>
+              <td>{{ingredient.molecularFormula}}</td>
+              <td>{{ingredient.casNumber}}</td>
+              <td>{{ingredient.inventoryNumber}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <input type="text" [(ngModel)]="ingredientInput" [ngModelOptions]="{standalone: true}"
+          placeholder="הקלידו כדי לחפש ובחרו מהתוצאות המוצעות" class="matInput" matInput [matAutocomplete]="auto2">
+        <mat-autocomplete #auto2="matAutocomplete" (optionSelected)="addIngredient($event)">
+          <mat-option *ngFor="let ingredient of ingredients$ | async | filterIngredients:ingredientInput"
+            [value]="ingredient">
+            <div class="autoOptions">
+              <table style="width: 100%;">
+                <tr>
+                  <td>{{ingredient.inventoryName}}</td>
+                  <td>{{ingredient.molecularFormula}}</td>
+                  <td>{{ingredient.casNumber }}</td>
+                </tr>
+              </table>
+            </div>
+          </mat-option>
+        </mat-autocomplete>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+::ng-deep {
+  .pages {
+    .title {
+      color: #4285F4;
+      text-align: center;
+    }
+
+    .subtitle {
+      color: #4285F4;
+    }
+    .mat-stepper-horizontal {
+      display: inline;
+
+
+      .mat-horizontal-stepper-header-container {
+        width: 360px;
+        margin: auto;
+      }
+
+      .mat-horizontal-content-container {
+        padding: 0 35px;
+      }
+
+      .mat-step-header:hover {
+        background: transparent;
+      }
+
+      .mat-step-icon {
+        color: #4285F4;
+        padding: 8px;
+        top: -8px;
+        background-color: #8080801c;
+        border: 2px solid gray;
+
+        .mat-icon {
+          font-size: 30px;
+          height: 30px;
+          width: 30px;
+        }
+      }
+
+      .mat-step-text-label  {
+        cursor: text;
+      }
+      
+      .mat-step-icon-selected {
+        color: #fff !important;
+        background-color: #3f51b5;
+      }
+
+      ///mat-tabs
+      form {
+        > div {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+
+          .col-2 {
+            width: 15%;
+            display: inline-block;
+          }
+
+          .col-4 {
+            width: 80%;
+            margin-left: 5%;
+            display: inline-block;
+          }
+
+          .col-12 {
+            width: 100%;
+          }
+
+          .col-6 {
+            flex: 0 47%;
+            margin-bottom: 60px;
+          }
+
+          .icon-help {
+            cursor: pointer;
+            float: left;
+          }
+
+          .matInput {
+            border: 1px solid royalblue;
+            margin-top: 15px;
+            width: 100%;
+            height: 30px;
+          }
+        }
+      }
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 35px 20px;
+      font-size: x-large;
+      border-radius: 3px;
+      
+      .btn {
+        cursor: pointer;
+        padding: 8px;
+        width: 130px;
+        text-align: center;
+      }
+
+      .btn-next ,.btn-confirmation{
+        background-color: royalblue;
+        color: white;
+      }
+
+      .btn-prev {
+        background-color: #80808038;
+        color: #808080;
+
+        .icon-prav {
+          font-family: 'Material Icons';
+          font-size: xx-large;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

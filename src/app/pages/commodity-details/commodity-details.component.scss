@@ -1,0 +1,52 @@
+.commodity-details {
+  .header {
+    .error-outline {
+      font-family: 'Material Icons';
+      display: inline-block;
+      font-size: 24px;
+
+      .text-error-outline {
+        font-size: 12px;
+        vertical-align: super;
+      }
+    }
+  }
+
+  .item {
+    background-color: white;
+    padding: 30px 50px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.46);
+
+    .ingredientsTable {
+      display: block;
+
+      .columnheader {
+        text-align: justify;
+        color: #4285F4;
+        font-size: 14px;
+      }
+
+      .optionsTable {
+        box-shadow: 0 0 14px 0px rgba(0, 0, 0, 0.63);
+        height: 50px;
+
+        td {
+          border-left: 1px solid #80808075;
+        }
+        td:last-child {
+          border: 1px solid #4285F4;
+        }
+        .clear {
+          vertical-align: middle;
+          color: #80808085;
+        }
+      }
+    }
+  }
+}
+
+.autoOptions {
+  justify-content: space-between;
+  display: flex;
+}
