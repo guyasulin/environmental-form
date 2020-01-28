@@ -1,3 +1,5 @@
+import { SucsessComponent } from './../popup/sucsess/sucsess.component';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PagesComponent } from './pages.component';
@@ -29,7 +31,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     ApplicantDetailsComponent, 
     CommodityDetailsComponent, 
     SavingDetailsComponent,
-    IngredientPipe
+    IngredientPipe,
+    SucsessComponent
   ],
   imports: [
     CommonModule,
@@ -48,6 +51,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatCardModule,
     MatRadioModule,
     MatCheckboxModule,
+  ],
+  entryComponents: [
+    SucsessComponent
   ],
   exports: [
     PagesComponent,

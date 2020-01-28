@@ -1,7 +1,7 @@
 import { DataService } from './../../services/data.service';
 import { HttpService } from './../../services/http.service';
 import { Component, OnInit } from '@angular/core';
-import { OptionsModel, ResourcesModel } from 'src/app/models/resourcesModel';
+import { OptionsModel } from 'src/app/models/resourcesModel';
 import {  FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({

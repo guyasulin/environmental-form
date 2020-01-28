@@ -1,7 +1,7 @@
+import { SucsessComponent } from './../popup/sucsess/sucsess.component';
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
 import { MatStepper, MatDialog } from "@angular/material";
-import { SucsessComponent } from "../popup/sucsess/sucsess.component";
 
 @Component({
   selector: "app-pages",
