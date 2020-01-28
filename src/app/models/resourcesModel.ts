@@ -16,14 +16,14 @@ export class ApplicantModel {
 export class CommodityModel {
   constructor(){
     this.categorie = new OptionsModel();
-    this.unitMeasure = new Array() as Array<Ingredients>
-    this.ingredients = new Array() as Array<Ingredients>
+    this.unitMeasure = new OptionsModel();
+    this.ingredients = new Array() as Array<Ingredients>;
   }
   itemName: string;
   categorie: OptionsModel;
   designateItem: string;
   quantityRequested:string;
-  unitMeasure: Array<Ingredients>
+  unitMeasure: OptionsModel;
   ingredients: Array<Ingredients>;
 }
 

@@ -1,9 +1,10 @@
-import { DataService } from './../../services/data.service';
-import { HttpService } from '../../services/http.service';
+import { Ingredients } from 'src/app/models/resourcesModel';
+import { OptionsModel } from 'src/app/models/resourcesModel';
 import { Component, OnInit } from '@angular/core';
-import { Ingredients, OptionsModel, } from './../../models/resourcesModel';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpService } from 'src/app/services/http.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-commodity-details',
@@ -19,7 +20,7 @@ export class CommodityDetailsComponent implements OnInit {
   public form: FormGroup;
   public showTable:boolean = false;
 
-  constructor(private httpService:HttpService,private dataService:DataService,private fb: FormBuilder) { }
+  constructor(private httpService:HttpService,public dataService:DataService,private fb: FormBuilder) { }
 
   ngOnInit() {
     this.unitMeasures$ = this.httpService.getUnitMeasures();
@@ -33,7 +34,7 @@ export class CommodityDetailsComponent implements OnInit {
       designateItem: ['', [
         Validators.required,
       ]],
-      ingredients: ['', [
+      ingredient: ['', [
         Validators.required,
       ]],
       quantityRequested: ['', [

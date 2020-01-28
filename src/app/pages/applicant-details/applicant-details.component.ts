@@ -1,8 +1,8 @@
-import { DataService } from './../../services/data.service';
-import { HttpService } from '../../services/http.service';
 import { Component, OnInit } from '@angular/core';
 import { OptionsModel, ResourcesModel } from 'src/app/models/resourcesModel';
 import {  FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { DataService } from 'src/app/services/data.service';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-applicant-details',
@@ -14,7 +14,7 @@ export class ApplicantDetailsComponent implements OnInit {
   public origins:OptionsModel[];
   public form: FormGroup;
 
-  constructor(private httpService:HttpService,private dataService:DataService,private fb: FormBuilder) { }
+  constructor(private httpService:HttpService,public dataService:DataService,private fb: FormBuilder) { }
 
   ngOnInit() {
     this.getOrigins()

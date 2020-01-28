@@ -10,7 +10,7 @@ export class SavingDetailsComponent implements OnInit {
 
   @Output() edit =  new EventEmitter();
 
-  constructor(private dataService:DataService) { }
+  constructor(public dataService:DataService) { }
 
   ngOnInit() {
   }

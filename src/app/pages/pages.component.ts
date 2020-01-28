@@ -17,6 +17,7 @@ import { SucsessComponent } from "../popup/sucsess/sucsess.component";
 export class PagesComponent implements OnInit {
   public showConfirmationBtn: boolean;
   public showNextBtn: boolean = true;
+  public currentPages:number[];
   @ViewChild("stepper", { static: true }) stepper: MatStepper;
 
   constructor(public dialog: MatDialog) {}

@@ -26,10 +26,6 @@ export class HttpService {
    getIngredients(): Observable<any> {
     return this.http.get<Ingredients[]>('https://my-json-server.typicode.com/galits/testNgsoft/ingredients')
    }
-
-   getPassages(): Observable<any> {
-    return this.http.get<OptionsModel[]>('https://my-json-server.typicode.com/galits/testNgsoft/passages')
-   }
 }
 
 
