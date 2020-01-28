@@ -3,6 +3,7 @@ import { HttpService } from './../../services/http.service';
 import { Component, OnInit } from '@angular/core';
 import { OptionsModel } from 'src/app/models/resourcesModel';
 import {  FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-applicant-details',
@@ -11,13 +12,14 @@ import {  FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 export class ApplicantDetailsComponent implements OnInit {
 
-  public origins:OptionsModel[];
+  public origins$: Observable<OptionsModel[]>;
   public form: FormGroup;
 
   constructor(private httpService:HttpService,public dataService:DataService,private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.getOrigins()
+    this.origins$ = this.httpService.getOrigins();
+
     this.form = this.fb.group({
       supplierName: ['', [
         Validators.required
@@ -43,13 +45,6 @@ export class ApplicantDetailsComponent implements OnInit {
       faxNumber: ['', [
       ]],
     });
-  }
-
-  getOrigins(){
-    this.httpService.getOrigins()
-    .subscribe(res => {
-      this.origins = res
-    })
   }
 
   optionSelected(event) {

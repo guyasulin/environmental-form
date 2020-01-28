@@ -20,7 +20,7 @@
             [(ngModel)]="dataService.data.applicant.sourceObjects.title" [ngModelOptions]="{standalone: true}"
             [matAutocomplete]="autoSourceObjects" name="sourceObjects">
           <mat-autocomplete #autoSourceObjects="matAutocomplete" (optionSelected)="optionSelected($event)">
-            <mat-option *ngFor="let origin of origins" [value]="origin">
+            <mat-option *ngFor="let origin of origins$ | async" [value]="origin">
               {{origin.title}}
             </mat-option>
           </mat-autocomplete>
