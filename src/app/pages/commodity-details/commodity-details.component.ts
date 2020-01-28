@@ -1,10 +1,10 @@
-import { Ingredients } from 'src/app/models/resourcesModel';
-import { OptionsModel } from 'src/app/models/resourcesModel';
+import { Ingredients, OptionsModel } from 'src/app/models/resourcesModel';
+import { HttpService } from './../../services/http.service';
+import { DataService } from './../../services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpService } from 'src/app/services/http.service';
-import { DataService } from 'src/app/services/data.service';
+// import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-commodity-details',

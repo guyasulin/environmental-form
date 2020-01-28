@@ -1,5 +1,5 @@
+import { DataService } from './../../services/data.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-saving-details',
