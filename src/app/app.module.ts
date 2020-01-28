@@ -21,14 +21,12 @@ import { PagesModule } from './pages/pages.module';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpService } from './services/http.service';
 import { HttpClientModule } from '@angular/common/http';
-// import { SucsessComponent } from './popup/sucsess/sucsess.component';
 import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    // SucsessComponent
   ],
   imports: [
     BrowserModule,
@@ -46,9 +44,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     PagesModule,
     MatDialogModule
   ],
-  entryComponents: [
-    // SucsessComponent
-  ],
+
   providers: [HttpService,DataService],
   bootstrap: [AppComponent]
 })

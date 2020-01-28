@@ -1,4 +1,3 @@
-import { SucsessComponent } from './../popup/sucsess/sucsess.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -23,6 +22,7 @@ import { MdePopoverModule } from '@material-extended/mde';
 import { MatCardModule  } from '@angular/material';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { SucsessComponent } from './popup/sucsess/sucsess.component';
 
 
 @NgModule({
