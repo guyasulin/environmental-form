@@ -21,7 +21,6 @@ import { PagesModule } from './pages/pages.module';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpService } from './services/http.service';
 import { HttpClientModule } from '@angular/common/http';
-import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -42,7 +41,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatInputModule,
     MatIconModule,
     PagesModule,
-    MatDialogModule
   ],
 
   providers: [HttpService,DataService],

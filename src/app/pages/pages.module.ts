@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApplicantDetailsComponent } from './applicant-details/applicant-details.component';
 import { CommodityDetailsComponent } from './commodity-details/commodity-details.component';
 import { SavingDetailsComponent } from './saving-details/saving-details.component';
-import { IngredientPipe } from './pipes/pipesIngredient';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatStepperModule} from '@angular/material/stepper';
@@ -22,7 +21,9 @@ import { MdePopoverModule } from '@material-extended/mde';
 import { MatCardModule  } from '@angular/material';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { IngredientPipe } from './pipes/pipesIngredient';
 import { SucsessComponent } from './popup/sucsess/sucsess.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -51,15 +52,17 @@ import { SucsessComponent } from './popup/sucsess/sucsess.component';
     MatCardModule,
     MatRadioModule,
     MatCheckboxModule,
-  ],
-  entryComponents: [
-    SucsessComponent
+    MatDialogModule
   ],
   exports: [
     PagesComponent,
     ApplicantDetailsComponent, 
     CommodityDetailsComponent, 
-    SavingDetailsComponent
-  ]
+    SavingDetailsComponent,
+    SucsessComponent,
+  ],
+  entryComponents: [
+    SucsessComponent
+  ],
 })
 export class PagesModule { }

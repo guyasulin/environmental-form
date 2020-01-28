@@ -1,5 +1,5 @@
+import { Ingredients } from 'src/app/models/resourcesModel';
 import { Pipe, PipeTransform } from "@angular/core";
-import { Ingredients } from "src/app/models/resourcesModel";
 
 @Pipe({
   name: "filterIngredients",
