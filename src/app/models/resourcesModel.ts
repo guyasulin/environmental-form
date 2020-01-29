@@ -48,13 +48,3 @@ export class Ingredients {
   casNumber: string;
   molecularFormula: string;
 }
-
-
-  // nameShipmentReceiver: string;
-  // shipmentReceiversPhoneNumber: string;
-  // address: string;
-  // volume: string;
-  // solicitedPass: string;
-  // MonetaryValueMerchandise: string;
-  // driverName: string;
-  // driversId: string;
