@@ -2,17 +2,17 @@
   <h1 class="title">טופס איכות הסביבה</h1>
 
   <mat-horizontal-stepper #stepper labelPosition="bottom" [@.disabled]="true" disableRipple="false" [selectedIndex]="currentPages"
-    [linear]="false">
-    <mat-step label="פרטי המבקש" state="perm_identity" [completed]="false" >
-      <app-applicant-details ></app-applicant-details>
+    linear>
+    <mat-step [stepControl]="applicant.formStepApplicant" label="פרטי המבקש" state="perm_identity" [completed]="false" >
+      <app-applicant-details #applicant></app-applicant-details>
     </mat-step>
 
-    <mat-step label="פרטי הטובין" state="archive" [completed]="false" >
-      <app-commodity-details ></app-commodity-details>
+    <mat-step [stepControl]="commodity.formStepCommodity" label="פרטי הטובין" state="archive" [completed]="false" >
+      <app-commodity-details #commodity></app-commodity-details>
     </mat-step>
 
-    <mat-step label="אישור וסיום" state="send" [completed]="false" >
-      <app-saving-details (edit)="prevPage($event)"></app-saving-details>
+    <mat-step [stepControl]="saving.formStepSaving" label="אישור וסיום" state="send" [completed]="false" >
+      <app-saving-details #saving (edit)="prevPage($event)"></app-saving-details>
     </mat-step>
 
     <!-- Icon overrides. -->

@@ -16,7 +16,7 @@ export class CommodityDetailsComponent implements OnInit {
   public unitMeasures$: Observable<OptionsModel[]>;
   public ingredients$: Observable<Ingredients[]>;
   public ingredientInput:string;
-  public form: FormGroup;
+  public formStepCommodity: FormGroup;
   public showTable:boolean = false;
 
   constructor(private httpService:HttpService,public dataService:DataService,private fb: FormBuilder) { }
@@ -26,14 +26,11 @@ export class CommodityDetailsComponent implements OnInit {
     this.categories$ = this.httpService.getCategories();
     this.ingredients$ = this.httpService.getIngredients();
 
-    this.form = this.fb.group({
+    this.formStepCommodity = this.fb.group({
       itemName: ['', [
         Validators.required,
       ]],
       designateItem: ['', [
-        Validators.required,
-      ]],
-      ingredient: ['', [
         Validators.required,
       ]],
       quantityRequested: ['', [
@@ -66,10 +63,10 @@ export class CommodityDetailsComponent implements OnInit {
   }
 
   get itemName() {
-    return this.form.get('itemName');
+    return this.formStepCommodity.get('itemName');
   }
   get designateItem() {
-    return this.form.get('designateItem');
+    return this.formStepCommodity.get('designateItem');
   }
 }
 

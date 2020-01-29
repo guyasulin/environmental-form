@@ -3,13 +3,13 @@
     <h2>פרטי המבקש</h2>
   </div>
   <div class="supplier-details">
-    <form [formGroup]="form">
+    <form [formGroup]="formStepApplicant">
       <h4 class="subtitle">פרטי הספק</h4>
       <div>
         <div class="col-6">
           <mat-label>שם הספק</mat-label>
           <input type="text" class="matInput" [(ngModel)]="dataService.data.applicant.supplierName" matInput
-            name="supplierName" formControlName="supplierName">
+            name="supplierName" formControlName="supplierName" required>
           <mat-error *ngIf="supplierName.invalid && supplierName.touched">
             יש למלא שם ספק
           </mat-error>
@@ -39,7 +39,7 @@
   </div>
 
   <div class="company-contact-information">
-    <form [formGroup]="form">
+    <form [formGroup]="formStepApplicant">
       <h4 class="subtitle">פרטי איש קשר בחברה</h4>
       <div>
         <div class="col-6">

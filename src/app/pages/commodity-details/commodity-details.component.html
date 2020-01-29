@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="item">
-    <form [formGroup]="form">
+    <form [formGroup]="formStepCommodity">
       <h4 class="subtitle">פרטי 1</h4>
       <div>
         <div class="col-6">
@@ -23,7 +23,7 @@
           <mat-label>קטגוריה</mat-label>
           <input type="text" class="matInput" [(ngModel)]="dataService.data.commodity.categorie.title"
             [ngModelOptions]="{standalone: true}" matInput placeholder="בחר/קטגוריה" [matAutocomplete]="autoCategorie">
-            <mat-icon class="keyboard-arrow-icon">keyboard_arrow_down</mat-icon>
+          <mat-icon class="keyboard-arrow-icon">keyboard_arrow_down</mat-icon>
           <mat-autocomplete #autoCategorie="matAutocomplete" (optionSelected)="selectCategorie($event)">
             <mat-option *ngFor="let categorie of categories$ | async" [value]="categorie">
               {{categorie.title}}
@@ -50,7 +50,7 @@
             <input type="text" placeholder="קג" class="matInput"
               [(ngModel)]="dataService.data.commodity.unitMeasure.title" [ngModelOptions]="{standalone: true}" matInput
               [matAutocomplete]="auto1">
-              <mat-icon class="keyboard-arrow-icon">keyboard_arrow_down</mat-icon>
+            <mat-icon class="keyboard-arrow-icon">keyboard_arrow_down</mat-icon>
             <mat-autocomplete #auto1="matAutocomplete" (optionSelected)="selectUnitMeasure($event)">
               <mat-option *ngFor="let unitMeasure of  unitMeasures$ | async" [value]="unitMeasure">
                 {{unitMeasure.title}}

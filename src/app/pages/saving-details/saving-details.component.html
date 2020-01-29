@@ -4,7 +4,7 @@
   </div>
 
   <div class="applicant-details">
-    <form>
+    <form [formGroup]="formStepSaving">
       <h4 class="subtitle">פרטי המבקש</h4>
       <div class="details fixhr">
         <div class="item-details">שם הספק:
@@ -41,7 +41,7 @@
   </div>
 
   <div class="commodity-details">
-    <form>
+    <form [formGroup]="formStepSaving">
       <h4 class="subtitle">פרטי החומרים:</h4>
       <div class="details">
         <div class="item-details">פריט:

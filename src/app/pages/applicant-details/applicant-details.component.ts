@@ -13,14 +13,14 @@ import { Observable } from 'rxjs';
 export class ApplicantDetailsComponent implements OnInit {
 
   public origins$: Observable<OptionsModel[]>;
-  public form: FormGroup;
+  public formStepApplicant: FormGroup;
 
   constructor(private httpService:HttpService,public dataService:DataService,private fb: FormBuilder) { }
 
   ngOnInit() {
     this.origins$ = this.httpService.getOrigins();
 
-    this.form = this.fb.group({
+    this.formStepApplicant = this.fb.group({
       supplierName: ['', [
         Validators.required
       ]],
@@ -52,26 +52,26 @@ export class ApplicantDetailsComponent implements OnInit {
   }
 
   get supplierName() {
-    return this.form.get('supplierName');
+    return this.formStepApplicant.get('supplierName');
   }
   get fullName() {
-    return this.form.get('fullName');
+    return this.formStepApplicant.get('fullName');
   }
 
   get companyNumber() {
-    return this.form.get('companyNumber');
+    return this.formStepApplicant.get('companyNumber');
   }
 
   get identityCard() {
-    return this.form.get('identityCard');
+    return this.formStepApplicant.get('identityCard');
   }
   get email() {
-    return this.form.get('email');
+    return this.formStepApplicant.get('email');
   }
   get phone() {
-    return this.form.get('phone');
+    return this.formStepApplicant.get('phone');
   }
   get telephone() {
-    return this.form.get('telephone');
+    return this.formStepApplicant.get('telephone');
   }
 }
